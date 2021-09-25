@@ -1,0 +1,33 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[T2A]{fontenc}			
+\usepackage[utf8]{inputenc}			
+\usepackage[english,russian]{babel}	
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+\usepackage{wasysym}
+\usepackage{amsmath}
+\everymath{\displaystyle}
+
+\author{конспект от TheLostDesu}
+\title{Доказательство равеносильности ПМИ, ПНЧ и ПСИ}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+Следующие утверждения равносильны:\\
+(1) ПСИ\\
+(2) ПНЧ\\
+(3) ПМИ\\
+Докажем то, что из 1го следует 2е. Дано: ПСИ. ($\forall \phi (prog(\phi) \rightarrow  \forall n \phi (n))$. Доказать, что $\exists (\phi (n) \wedge \forall m < n \urcorner \phi (m)$. \\
+Пусть $\urcorner \exists (\phi (n) \wedge \forall m < n \urcorner \phi (m)$. Тогда $\forall n (\urcorner \phi (n) \vee \urcorner \forall m < n \urcorner \phi (n))$. Тогда, заменив дизъюнкцию на импликацию, $\forall n (\forall m < n \urcorner \phi(m) \rightarrow \urcorner \phi (n))$. Но из ПСИ можно сказать, что все натуральные числа имеют свойство не $\phi $. Но мы договаривались, что для какого-то натурального числа $\phi $ выполняется. Так не бывает, получили противоречие. Значит ПНЧ выводится из ПСИ.\\
+Докажем то, что из 2го следует 3е. Дано ПНЧ($\exists (\phi (n) \wedge \forall m < n \urcorner \phi (m)$). Докажем ПМИ. ( $\phi , \phi (0), \forall n (\phi (n) \rightarrow \phi (n + 1))$, значит $\forall n \phi (n))$)\\
+Пусть $\urcorner \forall n \phi(n)$. $\Rightarrow \exists m \urcorner \phi (m)$. По ПНЧ $\exists n(\urcorner \phi (n) \wedge \forall m < n \phi (m)$. Воспользуемся тем, что натуральное число - либо 0, либо число вида <<натуральное число>> + 1.\\
+Если n = 0: так не бывает, так как $\phi (n)$ выполняется из посылок.	\\
+Но и если n $\neq $ 0, то n = m + 1. А по ПНЧ для всех m < n $\phi $ выполняется. И из дано $\phi (n) $ - выполняется. А мы предположили, что нет. Противоречие. Значит из ПНЧ следует ПМИ.\\
+Докажем то, что из 3го следует 1е. Дано ПМИ( $\forall \phi (\phi(0) \wedge \forall n (\phi (n) \rightarrow \phi (n + 1)) \rightarrow \phi$). и prog(n). Доказать, что $\forall n \phi (n)$.\\
+Введем свойство $\psi (n) =  \forall m < n \phi (m)$.\\
+$\psi (0) = 1 (\forall m < 0 \phi(m))$.\\
+$ \forall n (\psi (n) \rightarrow \psi(n + 1))$.
+А это есть база и шаг мат. индукции. Значит $\psi (n)$ верно. Значит, что ПСИ верен. ЧТД. \\
+Значит, что из ПСИ следует ПНЧ, а из него следует ПМИ, из него следует ПСИ, значит, что они равносильны.
+\end{document}
